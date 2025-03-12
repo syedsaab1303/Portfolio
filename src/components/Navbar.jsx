@@ -42,6 +42,7 @@ const NavLinks = styled.ul`
     width: 100%;
     background: #121212;
     padding: 1rem 0;
+    text-align: center;
   }  
 `;
 
@@ -52,12 +53,24 @@ const NavItem = styled.li`
   }
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+`;
+
 const MenuButton = styled.button`
   display: none;
   background: transparent;
   border: none;
-  color: white;
-  font-size: 1.5rem;
+  color:rgb(243, 156, 18);
+  font-size: 1.8rem;
   cursor: pointer;
 
   @media (max-width: 768px) {
@@ -65,13 +78,13 @@ const MenuButton = styled.button`
   }
 `;
 
+
 const ToggleButton = styled.button`
   background: transparent;
   border: none;
   color: inherit;
   font-size: 1.5rem;
   cursor: pointer;
-  margin-left: 1rem;
 `;
 
 const Navbar = () => {
@@ -95,7 +108,7 @@ const Navbar = () => {
         </NavItem>
         <NavItem>
           <Link to="work-projects" smooth={true} duration={500}>
-          Projects & Experience
+            Projects & Experience
           </Link>
         </NavItem>
         <NavItem>
@@ -105,16 +118,17 @@ const Navbar = () => {
         </NavItem>
       </NavLinks>
 
-      <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? "✖" : "☰"}
-      </MenuButton>
+      <ButtonsContainer>
+        <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? "✖" : "☰"}
+        </MenuButton>
 
-      <ToggleButton onClick={toggleTheme}>
-        {darkMode ? <FaSun /> : <FaMoon />}
-      </ToggleButton>
+        <ToggleButton onClick={toggleTheme}>
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </ToggleButton>
+      </ButtonsContainer>
     </NavbarContainer>
   );
 };
 
 export default Navbar;
-
