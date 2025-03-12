@@ -1,13 +1,29 @@
 import styled from "styled-components";
 import Skills from "./../components/Skills";
 
+// const AboutContainer = styled.section`
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: 1rem 50px;
+//   text-align: center;
+
+// `;
+
+
+
 const AboutContainer = styled.section`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem 50px;
+  padding: 4rem 2rem;
   text-align: center;
 
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem 0.5rem;
+  }
 `;
+
 
 const Heading = styled.h2`
   font-size: 2rem;

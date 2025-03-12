@@ -18,11 +18,19 @@ const NavbarContainer = styled.nav`
   z-index: 1000;
   box-sizing: border-box;
   transition: all 0.3s;
+
+   @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 const Logo = styled.h1`
   font-size: 1.5rem;
   font-weight: bold;
+
+   @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const NavLinks = styled.ul`

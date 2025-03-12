@@ -9,16 +9,15 @@ const HeroContainer = styled.section`
   text-align: center;
   width: 90%;  
   margin: 0 auto; 
+
+    @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+  }
 `;
-
-// const ProfileImage = styled.img`
-//   width: 150px;
-//   height: 150px;
-//   border-radius: 50%;
-//   margin-bottom: 20px;
-// `;
-
-
 
 const ProfileImage = styled.img`
   width: 100%; 
