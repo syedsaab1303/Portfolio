@@ -41,3 +41,16 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+/* ================================ */
+.skill-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 10px 40px; /* row-gap & column-gap ka space */
+}
+.skill-item {
+  font-size: 16px;
+  color: #dcdcdc;
+}

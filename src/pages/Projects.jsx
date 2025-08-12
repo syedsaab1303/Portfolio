@@ -70,11 +70,35 @@ const WorkProjects = () => {
       </WorkBlock>
 
       <WorkBlock>
-        <h3>Proof of Concepts (POCs)</h3>
+        <h3>Personal Projects</h3>
         <ProjectList>
           <li><b>Chat Application:</b> Built a real-time chat app using React, Node.js & Socket.io.</li>
           <li><b>E-Commerce Website:</b> Developed a full-stack e-commerce site using MERN stack.</li>
           <li><b>Portfolio Website:</b> Created my personal portfolio using React.js & Styled Components.</li>
+          <li>
+<h4>Instagram Reels Downloader</h4>
+<p>
+  This project enables users to download Instagram Reels easily and quickly.
+  It features a clean and simple interface where users can paste the reel link
+  and save the video directly to their device.
+</p>
+<p>
+  🔗 Live Demo:{" "}
+  <a
+    href="https://www.reeldownx.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    www.reeldownx.com
+  </a>
+</p>
+
+          </li>
+
+          
+          
+          
+        
         </ProjectList>
       </WorkBlock>
 

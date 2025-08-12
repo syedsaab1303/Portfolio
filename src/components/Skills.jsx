@@ -1,5 +1,5 @@
 import React from "react";
-import "./Skills.css"; 
+import "./Skills.css";
 
 const skillsData = [
   {
@@ -8,11 +8,14 @@ const skillsData = [
   },
   {
     category: "Frontend Development",
-    skills: ["React.js", "Redux", "React Hooks", "HTML", "CSS"],
+    skills: ["React.js", "Redux", "React Vite", "HTML", "CSS"],
   },
   {
     category: "Cloud",
-    skills: ["AWS Lambda", "EC2", "S3", "Redshift", "SQS", "SNS", "CloudWatch", "AWS SAM"],
+    skills: [
+      "AWS Lambda", "EC2", "S3", "Redshift", "SQS", "SNS", "CloudWatch", 
+      "DynamoDb", "Elasticache", "ALB", "ASG", "CloudFront", "AWS SAM"
+    ],
   },
   {
     category: "DevOps",
@@ -23,16 +26,18 @@ const skillsData = [
 const Skills = () => {
   return (
     <section className="skills-section">
-      <h2 className="skills-title">🚀 Skills & Expertise</h2>
+      <h2 className="skills-title">🚀 Skills &amp; Expertise</h2>
       <div className="skills-container">
         {skillsData.map((skillCategory, index) => (
           <div key={index} className="skill-card">
             <h3 className="skill-category">{skillCategory.category}</h3>
-            <ul>
+            
+            <div className="skill-items">
               {skillCategory.skills.map((skill, i) => (
-                <li key={i} className="skill-item">{skill}</li>
+                <div key={i} className="skill-item">{skill}</div>
               ))}
-            </ul>
+            </div>
+
           </div>
         ))}
       </div>
