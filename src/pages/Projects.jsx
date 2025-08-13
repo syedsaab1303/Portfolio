@@ -1,109 +1,110 @@
+// src/pages/Projects.jsx
 import styled from "styled-components";
+import ProjectCard from "../components/ProjectCard";
 
-const ProjectsContainer = styled.section`
-  padding: 1.5rem 0.5rem;
+const ProjectsWrapper = styled.section``;
+
+const SectionTitle = styled.h2`
+  color: #f39c12;
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 `;
 
-const Title = styled.h2`
-  font-size: 2.5rem;
-  margin: 1rem;
-  color: #f39c12;
-`;
+const SubTitle = styled.h3`
+  margin: 1rem 0;
+  color: var(--text-color);
+  opacity: 0.9;
+  text-align: center;
 
-const WorkBlock = styled.div`
-  background: #1e1e1e;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  text-align: left;
-  color: #dcdcdc;
-`;
-
-const CompanyLink = styled.a`
-  color: #f39c12;
-  text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    text-decoration: underline;
+  @media (max-width: 1024px) {
+    text-align: center;
   }
 `;
 
-const ProjectList = styled.ul`
-  margin-top: 1rem;
-  padding-left: 20px;
-  text-align: left;
-  color: #dcdcdc;
+const IntroText = styled.p`
+  margin: 0 auto 1.5rem;
+  max-width: 900px;
+  text-align: center;
+  opacity: 0.9;
 `;
 
-const WorkProjects = () => {
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  justify-items: center;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+`;
+
+// Work Projects (Company/Client)
+const WorkProjects = [
+  {
+    title: "Customer Issues Analytics Dashboard",
+    description:
+      "Built a dashboard to analyze customer issues from call centers with real-time UI, automated Excel reporting, and backend data extraction for actionable insights.",
+    link: "", // optional: add link if available
+  },
+  {
+    title: "Automated Reporting Scheduler",
+    description:
+      "Implemented daily and monthly scheduled reports with email delivery and attachments, improving operational visibility and timeliness.",
+    link: "",
+  },
+  // Add more work items here as needed
+];
+
+// Personal Projects
+const PersonalProjects = [
+  {
+    title: "Instagram Reels Downloader",
+    description:
+      "This project enables users to download Instagram Reels easily and quickly. It features a clean and simple interface where users can paste the reel link and save the video directly to their device.",
+    link: "https://www.reeldownx.com/",
+  },
+  // Add more personal items here as needed
+];
+
+export default function Projects() {
   return (
-    <ProjectsContainer id="work-projects">
-      <Title>Work Experience & Projects</Title>
+    <ProjectsWrapper id="projects">
+      <SectionTitle>Projects & Experience</SectionTitle>
+      <IntroText>
+        A selection of professional work delivered for organizations and a few
+        personal projects that showcase problem-solving, product thinking, and
+        end-to-end implementation.
+      </IntroText>
 
-      <WorkBlock>
-        <h3>Senior Software Engineer</h3>
-        <p>
-          <CompanyLink href="https://www.happiestminds.com/" target="_blank">
-            Happiest Minds Technology
-          </CompanyLink> (July 2024 - Present)
-        </p>
-        <ProjectList>
-          <li><b>Inbound CRM – Maruti:</b>  
-            <p>Created a dashboard to analyze customer issues reported via call centers. Developed backend solutions for data extraction, Excel reporting, and real-time UI display for actionable insights.</p>  
-            <p>Implemented automated scheduling for daily and monthly reports, ensuring timely email delivery with attachments.</p>  
-          </li>
-        </ProjectList>
-      </WorkBlock>
+      <SubTitle>Work Projects</SubTitle>
+      <Grid>
+        {WorkProjects.map((p, i) => (
+          <ProjectCard
+            key={`work-${i}`}
+            title={p.title}
+            description={p.description}
+            link={p.link}
+          />
+        ))}
+      </Grid>
 
-      <WorkBlock>
-        <h3>Software Engineer</h3>
-        <p>
-          <CompanyLink href="https://www.happiestminds.com/" target="_blank">
-            Happiest Minds Technology
-          </CompanyLink> (June 2022 - June 2024)
-        </p>
-        <ProjectList>
-          <li><b>Outbound CRM – Maruti Client:</b> Developed a reporting dashboard for Maruti to analyze customer reviews. Engineered APIs for data retrieval and automated Excel report generation, enabling insights to enhance product quality and customer satisfaction.</li>
-          <li><b>MI Insurance – Maruti Client:</b> Built a dashboard to analyze insurance purchase trends. Designed APIs and Excel automation for seamless report generation, helping Maruti optimize insurance offerings.</li>
-        </ProjectList>
-      </WorkBlock>
-
-      <WorkBlock>
-        <h3>Personal Projects</h3>
-        <ProjectList>
-          <li><b>Chat Application:</b> Built a real-time chat app using React, Node.js & Socket.io.</li>
-          <li><b>E-Commerce Website:</b> Developed a full-stack e-commerce site using MERN stack.</li>
-          <li><b>Portfolio Website:</b> Created my personal portfolio using React.js & Styled Components.</li>
-          <li>
-<h4>Instagram Reels Downloader</h4>
-<p>
-  This project enables users to download Instagram Reels easily and quickly.
-  It features a clean and simple interface where users can paste the reel link
-  and save the video directly to their device.
-</p>
-<p>
-  🔗 Live Demo:{" "}
-  <a
-    href="https://www.reeldownx.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    www.reeldownx.com
-  </a>
-</p>
-
-          </li>
-
-          
-          
-          
-        
-        </ProjectList>
-      </WorkBlock>
-
-    </ProjectsContainer>
+      <SubTitle style={{ marginTop: "2rem" }}>Personal Projects</SubTitle>
+      <Grid>
+        {PersonalProjects.map((p, i) => (
+          <ProjectCard
+            key={`personal-${i}`}
+            title={p.title}
+            description={p.description}
+            link={p.link}
+          />
+        ))}
+      </Grid>
+    </ProjectsWrapper>
   );
-};
+}
 
-export default WorkProjects;

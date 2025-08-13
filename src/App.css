@@ -1,10 +1,9 @@
 #root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0; 
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
-
 
 .logo {
   height: 6em;
@@ -12,6 +11,7 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -21,16 +21,16 @@
 
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+   transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+   transform: rotate(360deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+ a:nth-of-type(2) .logo {
+   animation: logo-spin infinite 20s linear;
   }
 }
 
@@ -44,13 +44,4 @@
 
 
 
-/* ================================ */
-.skill-items {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns */
-  gap: 10px 40px; /* row-gap & column-gap ka space */
-}
-.skill-item {
-  font-size: 16px;
-  color: #dcdcdc;
-}
+

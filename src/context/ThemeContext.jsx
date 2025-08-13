@@ -1,23 +1,51 @@
+// src/context/ThemeContext.jsx
 import { createContext, useState, useEffect, useContext } from "react";
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+const [darkMode, setDarkMode] = useState(false);
 
-  const toggleTheme = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+const toggleTheme = () => setDarkMode(prev => !prev);
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
+useEffect(() => {
+document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+}, [darkMode]);
 
-  return (
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+return (
+<ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+{children}
+</ThemeContext.Provider>
+);
 };
 
 export const useTheme = () => useContext(ThemeContext);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//=====================================

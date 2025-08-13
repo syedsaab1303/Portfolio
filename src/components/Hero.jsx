@@ -1,3 +1,4 @@
+// src/components/Hero.jsx
 import styled from "styled-components";
 
 const HeroContainer = styled.section`
@@ -5,46 +6,63 @@ const HeroContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  min-height: 40vh;
+  padding-top: 28px;
+  padding-bottom: 5px;
   text-align: center;
-  width: 90%;  
-  margin: 0 auto; 
+  width: 90%;
+  margin: 0 auto;
 
-    @media (max-width: 768px) {
-    padding: 1rem;
+  @media (max-width: 768px) {
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   @media (max-width: 480px) {
-    padding: 0.5rem;
+    padding-top: 10px;
+    padding-bottom: 2px;
   }
 `;
 
 const ProfileImage = styled.img`
-  width: 100%; 
-  max-width: 150px;
-  height: auto; 
+  width: 100%;
+  max-width: 180px;
   border-radius: 50%;
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
-    max-width: 120px; 
+    max-width: 165px;
   }
-
   @media (max-width: 480px) {
-    max-width: 100px;
+    max-width: 165px;
   }
 `;
 
+const Title = styled.h1`
+  margin: 0.25rem 0;
+  font-size: 2.2rem;
 
-const Hero = () => {
+  @media (max-width: 480px) {
+    font-size: 1.45rem;
+  }
+`;
+
+const Subtitle = styled.p`
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;
+
+export default function Hero() {
   return (
-    <HeroContainer id="hero">
-    <ProfileImage src="/images/profile.jpg" alt="My Profile" />
-    <h1>Hi, I'm Syed Tamzeed Ali</h1>
-    <p>Full Stack Developer | MERN Stack | Passionate Coder</p>
+    <HeroContainer id="home">
+      <ProfileImage src="/images/profile.jpg" alt="Profile" />
+      <Title>Hi, I'm Syed Tamzeed Ali</Title>
+      <Subtitle>Full Stack Developer | MERN Stack | Passionate Coder</Subtitle>
     </HeroContainer>
   );
-};
-
-export default Hero;
-
+}

@@ -1,142 +1,242 @@
+// src/components/Navbar.jsx
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { FaSun, FaMoon } from "react-icons/fa";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import { FaSun, FaMoon } from "react-icons/fa";
+
+const NAV_HEIGHT = "52px";
 
 const NavbarContainer = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: ${({ theme }) => (theme.darkMode ? "#121212" : "#f8f8f8")};
-  color: ${({ theme }) => (theme.darkMode ? "white" : "black")};
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
+  width: 100%;
+  height: ${NAV_HEIGHT};
   box-sizing: border-box;
-  transition: all 0.3s;
-
-   @media (max-width: 768px) {
-    padding: 0.5rem 1rem;
-  }
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 1000;
 `;
 
 const Logo = styled.h1`
-  font-size: 1.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
   font-weight: bold;
+  margin: 0;
+  pointer-events: none;
 
-   @media (max-width: 768px) {
-    font-size: 1.2rem;
+  @media (max-width: 1024px) {
+    position: relative;
+    left: auto;
+    transform: none;
+    pointer-events: auto;
+    flex: 1;
+    text-align: center;
   }
 `;
 
 const NavLinks = styled.ul`
-  display: flex;
-  gap: 1rem;
   list-style: none;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  width: 60%;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin: 0;
+  padding-left: 0;
 
-  @media (max-width: 768px) {
-    display: ${(props) => (props.isOpen ? "flex" : "none")};
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #121212;
-    padding: 1rem 0;
-    text-align: center;
-  }  
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const NavItem = styled.li`
   cursor: pointer;
+
+  a {
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
   &:hover {
     color: #f39c12;
   }
 `;
 
-const ButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 768px) {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-  }
-`;
-
 const MenuButton = styled.button`
   display: none;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
-  border: none;
-  color:rgb(243, 156, 18);
-  font-size: 1.8rem;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  color: inherit;
   cursor: pointer;
+  z-index: 1100;
 
-  @media (max-width: 768px) {
-    display: block;
+  @media (max-width: 1024px) {
+    display: inline-block;
+  }
+
+  @media (min-width: 1025px) {
+    display: none;
   }
 `;
 
+const ButtonsContainer = styled.div`
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1100;
+
+  @media (min-width: 1025px) {
+    position: static;
+    transform: none;
+    right: auto;
+    top: auto;
+  }
+`;
 
 const ToggleButton = styled.button`
   background: transparent;
-  border: none;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
   color: inherit;
-  font-size: 1.5rem;
   cursor: pointer;
 `;
 
-const Navbar = () => {
+const MobileNavLinks = styled.ul`
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  position: absolute;
+  top: ${NAV_HEIGHT};
+  left: 0;
+  width: 100%;
+  gap: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
+`;
+
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { darkMode, toggleTheme } = useTheme();
 
   return (
-    <NavbarContainer theme={{ darkMode }}>
-      <Logo>MyPortfolio</Logo>
-
-      <NavLinks isOpen={menuOpen}> 
+    <NavbarContainer>
+      {/* Desktop links */}
+      <NavLinks>
         <NavItem>
-          <Link to="hero" smooth={true} duration={500}>
+          <Link to="home" smooth duration={500} offset={-70}>
             Home
           </Link>
         </NavItem>
         <NavItem>
-          <Link to="about" smooth={true} duration={500}>
+          <Link to="about" smooth duration={500} offset={-70}>
             About
           </Link>
         </NavItem>
         <NavItem>
-          <Link to="work-projects" smooth={true} duration={500}>
+          <Link to="projects" smooth duration={500} offset={-70}>
             Projects & Experience
           </Link>
         </NavItem>
         <NavItem>
-          <Link to="contact" smooth={true} duration={500}>
+          <Link to="contact" smooth duration={500} offset={-70}>
             Contact
           </Link>
         </NavItem>
       </NavLinks>
 
-      <ButtonsContainer>
-        <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? "✖" : "☰"}
-        </MenuButton>
+      {/* Logo always center */}
+      <Logo>MyPortfolio</Logo>
 
-        <ToggleButton onClick={toggleTheme}>
+      {/* Mobile Menu Button */}
+      <MenuButton
+        aria-label="Toggle menu"
+        onClick={() => setMenuOpen((o) => !o)}
+      >
+        {menuOpen ? "Close" : "Menu"}
+      </MenuButton>
+
+      {/* Theme switcher (always visible top-right) */}
+      <ButtonsContainer>
+        <ToggleButton onClick={toggleTheme} aria-label="Toggle theme">
           {darkMode ? <FaSun /> : <FaMoon />}
         </ToggleButton>
       </ButtonsContainer>
+
+      {/* Mobile Dropdown links */}
+      {menuOpen && (
+        <MobileNavLinks>
+          <NavItem>
+            <Link
+              to="home"
+              smooth
+              duration={500}
+              offset={-70}
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link
+              to="about"
+              smooth
+              duration={500}
+              offset={-70}
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link
+              to="projects"
+              smooth
+              duration={500}
+              offset={-70}
+              onClick={() => setMenuOpen(false)}
+            >
+              Projects & Experience
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link
+              to="contact"
+              smooth
+              duration={500}
+              offset={-70}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </NavItem>
+        </MobileNavLinks>
+      )}
     </NavbarContainer>
   );
-};
+}
 
-export default Navbar;
