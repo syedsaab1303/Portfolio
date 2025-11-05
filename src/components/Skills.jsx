@@ -4,22 +4,21 @@ import "./Skills.css";
 const skillsData = [
 {
 category: "Backend Development",
-skills: ["Node.js", "Express.js", "REST APIs", "MySQL", "MongoDB"],
+skills: ["Node.js", "Express.js", "REST APIs", "MySQL", "MongoDB","PostgreSQL","Redis" ,"Microservices","Event-Driven Architecture" ],
 },
 {
 category: "Frontend Development",
-skills: ["React.js", "Redux", "React Vite", "HTML", "CSS"],
+skills: ["React.js", "Redux", "React Vite", "HTML", "CSS","tailwindcss" ],
 },
 {
 category: "Cloud",
 skills: [
-"AWS Lambda", "EC2", "S3", "Redshift", "SQS", "SNS", "CloudWatch",
-"DynamoDb", "Elasticache", "ALB", "ASG", "CloudFront", "AWS SAM"
+"AWS Lambda", "EC2", "S3", "CloudFront", "CloudWatch", "DynamoDB", "ElastiCache", "SQS", "SNS", "ALB"
 ],
 },
 {
 category: "DevOps",
-skills: ["Jenkins", "Docker", "Kubernetes"],
+skills: ["Jenkins", "Docker", "Kubernetes","Nginx","pm2","GitHub Actions"],
 },
 ];
 

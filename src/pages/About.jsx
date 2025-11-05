@@ -24,8 +24,13 @@ export default function About() {
     <AboutContainer id="about">
       <Heading>About Me</Heading>
       <Text>
-        I'm a passionate Full Stack Developer with expertise in the MERN stack.
-        I love building scalable web applications and exploring new technologies.
+I specialize in building production-grade backend systems and cloud-based infrastructure. 
+I've delivered enterprise reporting workflows, automation pipelines, analytics dashboards, 
+and high-performance API services. My focus is on clean architecture, scalability, and reliability.
+
+If you are looking for someone who understands backend systems end-to-end and can build 
+efficient, secure, and scalable solutions — I can help.
+
       </Text>
       <Skills />
     </AboutContainer>

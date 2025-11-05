@@ -46,15 +46,27 @@ const Grid = styled.div`
 // Work Projects (Company/Client)
 const WorkProjects = [
   {
-    title: "Customer Issues Analytics Dashboard",
+    title: "CRM Dashboard – Customer Issues Analytics Dashboard (Inbound Calls)",
     description:
-      "Built a dashboard to analyze customer issues from call centers with real-time UI, automated Excel reporting, and backend data extraction for actionable insights.",
+      "Developed backend services and reporting modules to analyze customer complaints received from Maruti call centers. Implemented data extraction and automated report generation workflows for real-time and scheduled analytics dashboards to support business decision-making and improve customer experience.",
     link: "", // optional: add link if available
+  },
+  {
+    title: "Outbound CRM – Customer Feedback Reporting Dashboard",
+    description:
+      "Developed REST APIs and reporting workflows to process customer feedback across dealership networks. Wrote unit & performance test cases to ensure reliability and optimized data visualization processes for faster insights.",
+    link: "",
+  },
+  {
+    title: "Insurance Trends & Analytics Dashboard",
+    description:
+      "Built backend automation to analyze vehicle insurance purchase trends across multiple Lines of Business (LOBs). Helped business teams monitor adoption rates and identify customer behavior patterns.",
+    link: "",
   },
   {
     title: "Automated Reporting Scheduler",
     description:
-      "Implemented daily and monthly scheduled reports with email delivery and attachments, improving operational visibility and timeliness.",
+      "Implemented a fully automated daily and monthly reporting system. Reports were generated, formatted in Excel, and delivered via email without manual effort. Greatly improved operational efficiency and ensured timely delivery of business insights to management team",
     link: "",
   },
   // Add more work items here as needed
@@ -65,8 +77,9 @@ const PersonalProjects = [
   {
     title: "Instagram Reels Downloader",
     description:
-      "This project enables users to download Instagram Reels easily and quickly. It features a clean and simple interface where users can paste the reel link and save the video directly to their device.",
+      "A web application that allows users to download Instagram reels/videos seamlessly. Built scalable backend integrating yt-dlp with Node.js for reliable media extraction. Deployed on AWS EC2 with Docker + Nginx for optimized performance and load handling.",
     link: "https://www.reeldownx.com/",
+    demo:"https://youtube.com/shorts/KZJZTHQq4vM?si=-j_j58b6WDKCSqhj"
   },
   // Add more personal items here as needed
 ];
@@ -89,6 +102,7 @@ export default function Projects() {
             title={p.title}
             description={p.description}
             link={p.link}
+            
           />
         ))}
       </Grid>
@@ -101,6 +115,7 @@ export default function Projects() {
             title={p.title}
             description={p.description}
             link={p.link}
+            demo={p.demo}
           />
         ))}
       </Grid>

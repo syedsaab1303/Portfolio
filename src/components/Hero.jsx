@@ -62,7 +62,9 @@ export default function Hero() {
     <HeroContainer id="home">
       <ProfileImage src="/images/profile.jpg" alt="Profile" />
       <Title>Hi, I'm Syed Tamzeed Ali</Title>
-      <Subtitle>Full Stack Developer | MERN Stack | Passionate Coder</Subtitle>
+      <Subtitle>Full Stack & Cloud Engineer (Node.js + AWS + Docker)</Subtitle>
+      <p>I help businesses build scalable backend systems and cloud deployments  
+that are reliable, optimized, and production-ready.</p>
     </HeroContainer>
   );
 }

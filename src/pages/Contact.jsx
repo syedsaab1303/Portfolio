@@ -45,7 +45,8 @@ export default function Contact() {
   return (
     <ContactContainer id="contact">
       <Title>Contact Me</Title>
-      <p>Feel free to reach out for collaborations or job opportunities!</p>
+      <p>Need help with backend development, AWS deployment or automation workflows?
+Message me — I respond quickly</p>
       <ContactInfo>
         <ContactLink
           href="mailto:syedtamzeed1303@gmail.com"

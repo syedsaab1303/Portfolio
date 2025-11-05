@@ -39,8 +39,14 @@ const Description = styled.p`
   margin-bottom: 1rem;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;     /* ✅ ensures vertical stacking */
+  gap: 10px;                   /* ✅ adds equal spacing */
+  margin-top: 0.8rem;          /* ✅ adds breathing room above buttons */
+`;
+
 const ViewButton = styled.a`
-  display: inline-block;
   background: #f39c12;
   color: black;
   padding: 0.6rem 1.2rem;
@@ -54,16 +60,39 @@ const ViewButton = styled.a`
   }
 `;
 
-export default function ProjectCard({ title, description, link }) {
+const DemoButton = styled.a`
+  background: #3498db;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.3s;
+
+  &:hover {
+    background: #217dbb;
+  }
+`;
+
+export default function ProjectCard({ title, description, link, demo }) {
   return (
     <Card>
       <ProjectTitle>{title}</ProjectTitle>
       <Description>{description}</Description>
-      {link && (
-        <ViewButton href={link} target="_blank" rel="noopener noreferrer">
-          View Project
-        </ViewButton>
-      )}
+
+      <ButtonGroup>
+        {link && (
+          <ViewButton href={link} target="_blank" rel="noopener noreferrer">
+            View Project
+          </ViewButton>
+        )}
+
+        {demo && (
+          <DemoButton href={demo} target="_blank" rel="noopener noreferrer">
+            🎥 Watch Demo
+          </DemoButton>
+        )}
+      </ButtonGroup>
     </Card>
   );
 }
