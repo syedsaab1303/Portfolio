@@ -1,6 +1,4 @@
 import { Stagger, Item } from './Reveal'
-import Counter from './Counter'
-import { STATS, rich } from '../data/resume'
 
 export default function Logline() {
   return (
@@ -15,25 +13,8 @@ export default function Logline() {
       <Item as="p" className="body">
         Backend-focused engineer specialising in <b>event-driven architecture</b>, hierarchical <b>RBAC systems</b>,
         MongoDB aggregations and serverless applications on AWS — with Docker, Kubernetes and CI/CD pipelines carrying
-        every release to production.
-      </Item>
-      <Item className="stats">
-        {STATS.map((s) => (
-          <div className="stat" key={s.kicker}>
-            <span className="k">{s.kicker}</span>
-            <div className="n">
-              {s.text ? (
-                s.text.map((t, i) => (i % 2 ? <i key={i}>{t}</i> : <span key={i}>{t}</span>))
-              ) : (
-                <>
-                  <Counter value={s.value} decimals={s.decimals} />
-                  <i>{s.suffix}</i>
-                </>
-              )}
-            </div>
-            <p className="sub">{rich(s.sub)}</p>
-          </div>
-        ))}
+        every release to production. Currently the sole owner of <b>three core microservices and 200+ REST APIs</b> on
+        ReelTrack, including a <b>V1 → V2 migration shipped with zero broken consumers</b>.
       </Item>
     </Stagger>
   )

@@ -5,36 +5,12 @@ export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/syed-tamzeed-ali-3229b4184',
   github: 'https://github.com/syedsaab1303',
   leetcode: 'https://leetcode.com/u/syedtamzeed_123/',
-  reeldownx: 'https://reeldownx.com',
   demo: 'https://youtube.com/shorts/reeldownx',
 }
 
 export const MARQUEE = [
   'Node.js', 'TypeScript', 'Hapi.js', 'Express.js', 'MongoDB', 'Redis',
   'AWS Lambda', 'SQS', 'Kafka', 'Docker', 'Kubernetes', 'Serverless', 'React.js',
-]
-
-export const STATS = [
-  {
-    kicker: 'Production experience',
-    value: 3.5, decimals: 1, suffix: '+',
-    sub: ['Years building ', ['enterprise backend systems'], ' — from serverless data pipelines to full microservice platforms.'],
-  },
-  {
-    kicker: 'API surface',
-    value: 200, decimals: 0, suffix: '+',
-    sub: ['REST endpoints designed, documented and maintained across ', ['three core services'], ' on ReelTrack.'],
-  },
-  {
-    kicker: 'Migration record',
-    text: ['V1', ' → ', 'V2'],
-    sub: ['Full API version migration with dual routing in Hapi.js — ', ['zero broken consumers'], '.'],
-  },
-  {
-    kicker: 'In the wild',
-    text: ['Live', '.'],
-    sub: [['reeldownx.com'], ' running on AWS — load-balanced, auto-scaling, serving real users.'],
-  },
 ]
 
 export const DEPARTMENTS = [

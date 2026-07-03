@@ -45,7 +45,7 @@ export default function Hero() {
           </span>
           <span className="ln">
             <Motion.span initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.75, ease: EASE, delay: D + 0.15 }}>
-              Ali<em>.</em>
+              Ali
             </Motion.span>
           </span>
         </h1>
