@@ -130,7 +130,7 @@ export default function GalaxyCanvas({ active = true }) {
   return (
     <div className="gl-wrap" aria-hidden="true">
       <Canvas
-        dpr={[1, 2]}
+        dpr={[1, 1.75]}
         gl={{ antialias: false, powerPreference: 'high-performance' }}
         camera={{ fov: 55, position: [0, 1.15, 3.4], near: 0.1, far: 30 }}
         frameloop={reduced ? 'demand' : active ? 'always' : 'never'}
@@ -138,7 +138,8 @@ export default function GalaxyCanvas({ active = true }) {
       >
         <color attach="background" args={['#07090e']} />
         <Galaxy />
-        <EffectComposer>
+        {/* multisampling off: points + bloom don't need MSAA, saves a big chunk of GPU time */}
+        <EffectComposer multisampling={0}>
           <Bloom mipmapBlur intensity={0.8} luminanceThreshold={0.12} luminanceSmoothing={0.3} radius={0.75} />
         </EffectComposer>
       </Canvas>

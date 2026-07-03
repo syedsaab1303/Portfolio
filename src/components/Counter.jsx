@@ -13,7 +13,7 @@ export default function Counter({ value, decimals = 0 }) {
       return
     }
     const controls = animate(0, value, {
-      duration: 1.4,
+      duration: 1.0,
       ease: 'easeOut',
       onUpdate: (v) => {
         if (ref.current) ref.current.textContent = v.toFixed(decimals)
