@@ -4,7 +4,7 @@ import GalaxyCanvas from './GalaxyCanvas'
 import MagneticLink from './MagneticLink'
 import { EASE } from './Reveal'
 
-const META = ['Node.js', 'TypeScript', 'AWS', 'MongoDB', 'Microservices']
+const META = ['Node.js', 'JavaScript', 'AWS', 'MongoDB', 'Microservices']
 
 export default function Hero() {
   const ref = useRef(null)

@@ -9,12 +9,12 @@ export const LINKS = {
 }
 
 export const MARQUEE = [
-  'Node.js', 'TypeScript', 'Hapi.js', 'Express.js', 'MongoDB', 'Redis',
+  'Node.js', 'JavaScript', 'Hapi.js', 'Express.js', 'MongoDB', 'Redis',
   'AWS Lambda', 'SQS', 'Kafka', 'Docker', 'Kubernetes', 'Serverless', 'React.js',
 ]
 
 export const DEPARTMENTS = [
-  { name: 'Languages', chips: [['JavaScript', 1], ['TypeScript', 1], ['SQL']] },
+  { name: 'Languages', chips: [['JavaScript', 1], ['TypeScript'], ['SQL']] },
   { name: 'Backend', chips: [['Node.js', 1], ['Hapi.js', 1], ['Express.js'], ['REST APIs'], ['Microservices'], ['Event-Driven'], ['Serverless']] },
   { name: 'Databases', chips: [['MongoDB', 1], ['Mongoose'], ['Aggregation Pipelines'], ['Redis', 1], ['MySQL'], ['Redshift']] },
   { name: 'Cloud / AWS', chips: [['Lambda', 1], ['EC2'], ['S3'], ['API Gateway'], ['CloudWatch'], ['CloudFront'], ['ELB · ALB · ASG']] },
