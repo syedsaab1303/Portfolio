@@ -1,70 +1,78 @@
-// src/components/Hero.jsx
-import styled from "styled-components";
+import { useEffect, useRef, useState } from 'react'
+import { motion as Motion, useReducedMotion } from 'framer-motion'
+import GalaxyCanvas from './GalaxyCanvas'
+import MagneticLink from './MagneticLink'
+import { EASE } from './Reveal'
 
-const HeroContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 40vh;
-  padding-top: 28px;
-  padding-bottom: 5px;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
-
-  @media (max-width: 768px) {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-
-  @media (max-width: 480px) {
-    padding-top: 10px;
-    padding-bottom: 2px;
-  }
-`;
-
-const ProfileImage = styled.img`
-  width: 100%;
-  max-width: 180px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    max-width: 165px;
-  }
-  @media (max-width: 480px) {
-    max-width: 165px;
-  }
-`;
-
-const Title = styled.h1`
-  margin: 0.25rem 0;
-  font-size: 2.2rem;
-
-  @media (max-width: 480px) {
-    font-size: 1.45rem;
-  }
-`;
-
-const Subtitle = styled.p`
-  margin: 0.5rem 0 0;
-  opacity: 0.9;
-  font-size: 1.1rem;
-
-  @media (max-width: 480px) {
-    font-size: 1rem;
-  }
-`;
+const META = ['Node.js', 'TypeScript', 'AWS', 'MongoDB', 'Microservices']
 
 export default function Hero() {
+  const ref = useRef(null)
+  const [active, setActive] = useState(true)
+  const reduced = useReducedMotion()
+  // entrance waits for the intro title card
+  const D = reduced ? 0 : 2.3
+
+  useEffect(() => {
+    const io = new IntersectionObserver(([e]) => setActive(e.isIntersecting), { threshold: 0 })
+    if (ref.current) io.observe(ref.current)
+    return () => io.disconnect()
+  }, [])
+
+  const rise = (delay) => ({
+    initial: { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.9, ease: EASE, delay },
+  })
+
   return (
-    <HeroContainer id="home">
-      <ProfileImage src="/images/profile.jpg" alt="Profile" />
-      <Title>Hi, I'm Syed Tamzeed Ali</Title>
-      <Subtitle>Full Stack & Cloud Engineer (Node.js + AWS + Docker)</Subtitle>
-      <p>I help businesses build scalable backend systems and cloud deployments  
-that are reliable, optimized, and production-ready.</p>
-    </HeroContainer>
-  );
+    <section className="hero" id="hero" ref={ref}>
+      <GalaxyCanvas active={active} />
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="hero-vignette" aria-hidden="true" />
+
+      <div className="hero-in">
+        <Motion.span className="slate-tag" {...rise(D)}>
+          <i />
+          Senior Software Engineer — Backend · Delhi, India
+        </Motion.span>
+
+        <h1>
+          <span className="ln">
+            <Motion.span initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: EASE, delay: D + 0.05 }}>
+              Syed Tamzeed
+            </Motion.span>
+          </span>
+          <span className="ln">
+            <Motion.span initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: EASE, delay: D + 0.2 }}>
+              Ali<em>.</em>
+            </Motion.span>
+          </span>
+        </h1>
+
+        <Motion.p className="hero-sub" {...rise(D + 0.5)}>
+          I build the machinery behind the screen — <b>scalable microservices</b>, <b>high-throughput REST APIs</b>, and{' '}
+          <b>fault-tolerant distributed systems</b> for enterprise SaaS. Currently the sole backend owner of three core
+          services powering a film &amp; TV production platform.
+        </Motion.p>
+
+        <Motion.div className="hero-cta" {...rise(D + 0.7)}>
+          <MagneticLink href="#acts">View the work ↓</MagneticLink>
+          <MagneticLink href="#contact" className="btn ghost">
+            Roll credits
+          </MagneticLink>
+        </Motion.div>
+
+        <Motion.div className="hero-meta" {...rise(D + 0.85)}>
+          {META.map((m) => (
+            <span key={m}>{m}</span>
+          ))}
+        </Motion.div>
+      </div>
+
+      <Motion.span className="scroll-cue" {...rise(D + 1.1)}>
+        Scroll to begin
+      </Motion.span>
+    </section>
+  )
 }

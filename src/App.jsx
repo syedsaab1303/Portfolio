@@ -1,46 +1,37 @@
-// src/App.jsx
-import styled from "styled-components";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
-import { ThemeProvider } from "./context/ThemeContext";
-
-const AppContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: var(--bg-color);
-    color: var(--text-color);
-    transition: all 0.3s;
-`;
-
-const MainContent = styled.main`
-    padding-top: 72px; /* account for fixed navbar height */
-    flex: 1 0 auto;
-`;
-
-const Footer = styled.footer`
-    margin-top: auto;
-    text-align: center;
-    padding: 1rem;
-    opacity: 0.7;
-`;
+import { MotionConfig } from 'framer-motion'
+import Intro from './components/Intro'
+import CursorFX from './components/CursorFX'
+import TimecodeHUD from './components/TimecodeHUD'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Strip from './components/Strip'
+import Logline from './components/Logline'
+import Departments from './components/Departments'
+import Acts from './components/Acts'
+import Feature from './components/Feature'
+import Credits from './components/Credits'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 export default function App() {
-return (
-<ThemeProvider>
-<AppContainer>
-<Navbar />
-<MainContent>
-<Hero />
-<About />
-<Projects />
-<Contact />
-</MainContent>
-<Footer>© {new Date().getFullYear()} Syed Tamzeed Ali</Footer>
-</AppContainer>
-</ThemeProvider>
-);
+  return (
+    <MotionConfig reducedMotion="user">
+      <div className="grain" aria-hidden="true" />
+      <Intro />
+      <CursorFX />
+      <TimecodeHUD />
+      <Navbar />
+      <main id="top">
+        <Hero />
+        <Strip />
+        <Logline />
+        <Departments />
+        <Acts />
+        <Feature />
+        <Credits />
+        <Contact />
+      </main>
+      <Footer />
+    </MotionConfig>
+  )
 }
